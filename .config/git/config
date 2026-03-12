@@ -1,0 +1,61 @@
+[include]
+	path = ~/.config/delta/catppuccin-mocha.gitconfig
+
+[alias]
+	up = fetch -p
+	last = log -1 HEAD --stat --graph
+	r = remote -v
+	b = branch -a
+	c = commit -m
+	s = status -sb
+	d = diff
+	p = pull
+	P = push
+	stat = status
+	ls = log --oneline --decorate --graph
+	sub = submodule update --recursive --remote
+	conf = config --list --show-origin --show-scope
+	aliases = config --get-regex ^alias
+
+[init]
+	defaultBranch = master
+
+[core]
+	autocrlf = false
+	filemode = false
+	ignorecase = false
+	sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
+	pager = delta
+
+[delta]
+  features = catppuccin-mocha
+  side-by-side = true
+  navigate = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[http]
+	postBuffer = 524288000
+	maxRequestBuffer = 524288000
+
+[includeIf "gitdir:**/school/**/.git"]
+  path = gitlabvsb.gitconfig
+
+[includeIf "gitdir:**/work/**/.git"]
+  path = work.gitconfig
+
+[includeIf "gitdir:**/personal/**/.git"]
+  path = github.gitconfig
+
+[includeIf "gitdir:**/chezmoi/**/.git"]
+  path = github.gitconfig
+
+[includeIf "gitdir:**/.config/**/.git"]
+  path = github.gitconfig
+[user]
+	email = gikol113@gmail.com
+	name = Ondřej Javorský

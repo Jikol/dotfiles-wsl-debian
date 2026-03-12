@@ -1,0 +1,146 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "options": {
+            "debian": "\uf306",
+            "linux": "\uf306"
+          },
+          "leading_diamond": "\ue0b6",
+          "template": " {{ .Icon }} ",
+          "foreground": "#363a4f",
+          "background": "#8aadf4",
+          "type": "os",
+          "style": "diamond"
+        },
+        {
+          "options": {
+            "folder_icon": "\uf07c",
+            "folder_separator_icon": " ❯ ",
+            "home_icon": "\uf015",
+            "max_depth": 3,
+            "style": "agnoster_short"
+          },
+          "template": " {{ .Path }} ",
+          "foreground": "#f5e0dc",
+          "powerline_symbol": "\ue0b0",
+          "background": "#363a4f",
+          "type": "path",
+          "style": "powerline"
+        },
+        {
+          "options": {
+            "branch_icon": "\ue725 ",
+            "fetch_status": true
+          },
+          "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "foreground": "#24273a",
+          "powerline_symbol": "\ue0b0",
+          "background": "#eed49f",
+          "type": "git",
+          "style": "powerline"
+        },
+        {
+          "options": {
+            "always_enabled": true,
+            "cache_duration": "none",
+            "style": "roundrock",
+            "threshold": 0
+          },
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ if gt .Code 0 }}\uf00d{{ else }}\uf00c{{ end }}",
+          "foreground": "#363a4f",
+          "background": "#f5c2e7",
+          "type": "text",
+          "style": "diamond",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#f38ba8{{ end }}"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "options": {
+            "cache_duration": "none",
+            "fetch_version": true,
+            "display_mode": "always",
+            "home_enabled": true
+          },
+          "leading_diamond": " \ue0b6",
+          "template": "\ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} {{ end }}",
+          "foreground": "#FFE873",
+          "background": "#306998",
+          "type": "python",
+          "style": "diamond"
+        },
+        {
+          "options": {
+            "cache_duration": "none",
+            "fetch_version": true,
+            "display_mode": "always",
+            "home_enabled": true
+          },
+          "template": "\ue76f {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }} {{ end }}",
+          "foreground": "#181825",
+          "powerline_symbol": "\ue0b6",
+          "background": "#fbf0df",
+          "type": "bun",
+          "style": "powerline",
+          "invert_powerline": true
+        },
+        {
+          "options": {
+            "always_enabled": true
+          },
+          "template": " {{ .FormattedMs }}",
+          "foreground": "#cad3f5",
+          "powerline_symbol": "\ue0b6",
+          "background": "#313244",
+          "type": "executiontime",
+          "style": "powerline",
+          "invert_powerline": true
+        },
+        {
+          "options": {
+            "cache_duration": "none"
+          },
+          "trailing_diamond": "\ue0b4",
+          "template": "\ue38a",
+          "foreground": "#cad3f5",
+          "background": "#313244",
+          "type": "text",
+          "style": "diamond"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "options": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "template": "\uf061 ",
+          "foreground": "#e0f8ff",
+          "type": "text",
+          "style": "plain",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#f38ba8{{ end }}"
+          ]
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3
+}
