@@ -1,7 +1,10 @@
-## Sync `.config` directory with GNU Stow
+## Dotfiles for WSL Debian distribution
+
+It's managed by `sync.sh` bash script which copy files from or to ~/.config directory.
+
+### Additional commands
 
 ```
-mkdir ~/dotfiles && cd ~/dotfiles
-git clone https://github.com/Jikol/dotfiles-wsl-debian.git .
-stow --target=$HOME .
+# clone tpm plugin manager for tmux
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
