@@ -36,5 +36,5 @@ alias ssh="ssh-wrapper"
 
 alias batrld="batcat cache --build"
 alias tmuxrld="tmux source $HOME/.config/tmux/tmux.conf"
-alias configsync="$HOME/dotfiles/sync.sh sync-to"
-alias configapply="$HOME/dotfiles/sync.sh sync-from"
+alias chsync="$HOME/dotfiles/sync.sh sync-to"
+alias chapply="$HOME/dotfiles/sync.sh sync-from"

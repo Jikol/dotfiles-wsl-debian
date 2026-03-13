@@ -23,7 +23,3 @@ api.nvim_create_autocmd("VimLeave", {
   group = "RestoreCursorShapeOnExit",
   command = "set guicursor=a:ver20,a:blinkwait700-blinkoff400-blinkon250",
 })
-
-schdl(function()
-  opt.clipboard = "unnamedplus"
-end)

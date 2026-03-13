@@ -7,6 +7,7 @@ CONFIG_PATH="$HOME/.config"
 # relative paths in ~/.config
 EXCLUDE_PATHS=(
   "tmux/plugins"
+  "fish/fish_variables"
 )
 
 # ─── Arguments composition ────────────────────────
