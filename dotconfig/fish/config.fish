@@ -9,7 +9,6 @@ end
 alias cls="printf "\033c""
 alias csl="cls"
 alias bat="batcat"
-alias vim="nvim"
 alias g="git"
 alias gg="lazygit"
 alias d="docker"
