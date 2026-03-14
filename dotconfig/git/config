@@ -1,31 +1,38 @@
 [include]
-	path = ~/.config/delta/catppuccin-mocha.gitconfig
+  path = ~/.config/delta/catppuccin-mocha.gitconfig
+  
+[user]
+  email = gikol113@gmail.com
+  name = Ondřej Javorský
+
+[credential]
+  helper = store
 
 [alias]
-	up = fetch -p
-	last = log -1 HEAD --stat --graph
-	r = remote -v
-	b = branch -a
-	c = commit -m
-	s = status -sb
-	d = diff
-	p = pull
-	P = push
-	stat = status
-	ls = log --oneline --decorate --graph
-	sub = submodule update --recursive --remote
-	conf = config --list --show-origin --show-scope
-	aliases = config --get-regex ^alias
+  up = fetch -p
+  last = log -1 HEAD --stat --graph
+  r = remote -v
+  b = branch -a
+  c = commit -m
+  s = status -sb
+  d = diff
+  p = pull
+  P = push
+  stat = status
+  ls = log --oneline --decorate --graph
+  sub = submodule update --recursive --remote
+  conf = config --list --show-origin --show-scope
+  aliases = config --get-regex ^alias
 
 [init]
-	defaultBranch = master
+  defaultBranch = master
 
 [core]
-	autocrlf = false
-	filemode = false
-	ignorecase = false
-	sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
-	pager = delta
+  autocrlf = false
+  filemode = false
+  ignorecase = false
+  sshCommand = /mnt/c/Windows/System32/OpenSSH/ssh.exe
+  pager = delta
 
 [delta]
   features = catppuccin-mocha
@@ -39,8 +46,8 @@
   colorMoved = default
 
 [http]
-	postBuffer = 524288000
-	maxRequestBuffer = 524288000
+  postBuffer = 524288000
+  maxRequestBuffer = 524288000
 
 [includeIf "gitdir:**/school/**/.git"]
   path = gitlabvsb.gitconfig
@@ -56,8 +63,3 @@
 
 [includeIf "gitdir:**/.config/**/.git"]
   path = github.gitconfig
-[user]
-	email = gikol113@gmail.com
-	name = Ondřej Javorský
-[credential]
-	helper = store
