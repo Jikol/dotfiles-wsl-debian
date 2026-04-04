@@ -11,6 +11,11 @@ EXCLUDE_PATHS=(
   "io.datasette.llm"
 )
 
+# relative paths in ~/.config
+SYMLINKS=(
+  "docker/config.json:$HOME/.docker/config.json"
+)
+
 # ─── Arguments composition ────────────────────────
 EXCLUDE_ARGS=()
 for path in "${EXCLUDE_PATHS[@]}"; do
@@ -32,6 +37,28 @@ run_sync() {
   fi
 }
 
+run_links() {
+  for pair in "${SYMLINKS[@]}"; do
+    local src="$CONFIG_PATH/${pair%%:*}"
+    local dst="${pair##*:}"
+    
+    if [[ ! -e "$src" ]]; then
+      echo -e "${RED_CLR}Source not found: $src${NC_CLR}"
+      continue
+    fi
+
+    mkdir -p "$(dirname "$dst")"
+
+    if [[ -L "$dst" && "$(readlink "$dst")" == "$src" ]]; then
+      echo -e "${GREEN_CLR}Already linked: $dst${NC_CLR}"
+    else
+      [[ -e "$dst" || -L "$dst" ]] && rm "$dst"
+      ln -s "$src" "$dst"
+      echo -e "${CYAN_CLR}Symlinked: $dst -> $src${NC_CLR}"
+    fi
+  done
+}
+
 # ─── Main logic ────────────────────────
 case "${1:-}" in
   sync-to)
@@ -40,6 +67,7 @@ case "${1:-}" in
     ;;
   sync-from)
     run_sync "$DOTFILES_PATH/" "$CONFIG_PATH/"
+    run_links
     ;;
   *)
     echo "Usage: $0 [sync-to|sync-from]"
