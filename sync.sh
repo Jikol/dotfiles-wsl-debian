@@ -8,7 +8,6 @@ CONFIG_PATH="$HOME/.config"
 EXCLUDE_PATHS=(
   "tmux/plugins"
   "fish/fish_variables"
-  "copilot"
   "io.datasette.llm"
 )
 
