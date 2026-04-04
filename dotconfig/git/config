@@ -5,9 +5,6 @@
   email = gikol113@gmail.com
   name = Ondřej Javorský
 
-[credential]
-  helper = store
-
 [alias]
   up = fetch -p
   last = log -1 HEAD --stat --graph
