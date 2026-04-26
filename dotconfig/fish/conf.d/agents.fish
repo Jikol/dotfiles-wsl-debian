@@ -1,17 +1,20 @@
 ## Functions ##
-function copilot-commit
-  copilot \
-    -p "Create new commit for staged files with appropriate message.
-    Commit message rules:
-    - Check git status, diff and last 10 commits to match project style
-    - Format: <type>: <summary>
-    - bullet
-    - bullet
-    - Types: feat/fix/refactor/chore/docs/style/test
-    - No Co-authored-by trailer" \
-    --yolo --no-ask-user --model claude-haiku-4.5
+function cld-wrapper
+  if contains -- "$argv[1]" c commit
+    claude-commit
+  else
+    command claude $argv
+  end
 end
 
-## Aliases ##
-alias commit="copilot-commit"
+function claude-commit
+  command claude -p "Create new commit for staged files with appropriate message." \
+    --allowed-tools "Bash" \
+    --model claude-haiku-4-5-20251001 \
+    --dangerously-skip-permissions
+end
 
+
+## Aliases ##
+alias cld="cld-wrapper"
+alias zadek="echo prdel"
