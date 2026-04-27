@@ -14,7 +14,7 @@ EXCLUDE_PATHS=(
 # relative paths in ~/.config
 SYMLINKS=(
   "docker/config.json:$HOME/.docker/config.json"
-  "claude/CLAUDE.md:$HOME/.local/share/claude/CLAUDE.md"
+  "llm/AGENTS.md:$HOME/.local/share/claude/CLAUDE.md"
   "claude/settings.json:$HOME/.local/share/claude/settings.json"
 )
 

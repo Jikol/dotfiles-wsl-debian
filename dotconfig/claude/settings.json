@@ -1,8 +1,19 @@
 {
-  "theme": "auto",
   "statusLine": {
     "type": "command",
     "command": "bunx -y ccstatusline@latest",
     "padding": 0
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "theme": "auto",
+  "enabledPlugins": {
+    "caveman@caveman": true
   }
 }
