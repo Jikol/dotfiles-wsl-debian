@@ -1,5 +1,8 @@
 {
-  "credsStore": "desktop.exe",
-  "imagesFormat": "table {{.ID}}\t{{.Repository}}:{{.Tag}}\t{{.CreatedSince}}\t{{.Size}}",
-  "psFormat": "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}"
+	"auths": {
+		"localhost:5000": {}
+	},
+	"psFormat": "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}",
+	"imagesFormat": "table {{.ID}}\t{{.Repository}}:{{.Tag}}\t{{.CreatedSince}}\t{{.Size}}",
+	"credsStore": "desktop.exe"
 }
