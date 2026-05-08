@@ -2,7 +2,11 @@
   "statusLine": {
     "type": "command",
     "command": "bunx -y ccstatusline@latest",
-    "padding": 0
+    "padding": 0,
+    "refreshInterval": 10
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -12,8 +16,6 @@
       }
     }
   },
-  "theme": "auto",
-  "enabledPlugins": {
-    "caveman@caveman": true
-  }
+  "effortLevel": "high",
+  "theme": "auto"
 }

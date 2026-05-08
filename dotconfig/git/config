@@ -1,10 +1,6 @@
 [include]
   path = ~/.config/delta/catppuccin-mocha.gitconfig
   
-[user]
-  email = gikol113@gmail.com
-  name = Ondřej Javorský
-
 [alias]
   up = fetch -p
   last = log -1 HEAD --stat --graph
@@ -39,6 +35,9 @@
 [merge]
   conflictstyle = diff3
 
+[gpg "ssh"]
+  program = /mnt/c/Windows/System32/OpenSSH/ssh-keygen.exe
+
 [diff]
   colorMoved = default
 
@@ -46,17 +45,11 @@
   postBuffer = 524288000
   maxRequestBuffer = 524288000
 
-[includeIf "gitdir:**/school/**/.git"]
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+  path = github.gitconfig
+
+[includeIf "hasconfig:remote.*.url:git@gitlab.vsb.cz:*/**"]
   path = gitlabvsb.gitconfig
 
-[includeIf "gitdir:**/work/**/.git"]
+[includeIf "hasconfig:remote.*.url:git@ntblppjavorsky:*/**"]
   path = work.gitconfig
-
-[includeIf "gitdir:**/personal/**/.git"]
-  path = github.gitconfig
-
-[includeIf "gitdir:**/chezmoi/**/.git"]
-  path = github.gitconfig
-
-[includeIf "gitdir:**/.config/**/.git"]
-  path = github.gitconfig

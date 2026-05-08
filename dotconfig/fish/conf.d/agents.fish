@@ -18,4 +18,3 @@ end
 
 ## Aliases ##
 alias cld="cld-wrapper"
-alias zadek="echo prdel"
