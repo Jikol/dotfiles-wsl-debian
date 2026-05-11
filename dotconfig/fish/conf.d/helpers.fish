@@ -1,5 +1,5 @@
 ## Functions ##
-function sudo-wrapper
+function sudo-wrapper --description "sudo with nala and editor HOME fix"
 	if contains -- "$argv[1]" apt
 		command sudo nala $argv[2..-1]
   else if contains -- "$argv[1]" nvim vim
@@ -9,11 +9,11 @@ function sudo-wrapper
 	end
 end
 
-function apt-wrapper
+function apt-wrapper --description "apt using nala"
 	command nala $argv
 end
 
-function ssh-wrapper
+function ssh-wrapper --description "SSH with host listing support"
   if test (count $argv) -ge 1
     if contains -- "$argv[1]" ls list
       set configPath "/mnt/c/Users/Jikol/.ssh/config"

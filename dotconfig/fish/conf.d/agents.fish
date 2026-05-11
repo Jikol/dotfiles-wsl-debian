@@ -1,5 +1,5 @@
 ## Functions ##
-function cld-wrapper
+function cld-wrapper --description "Claude CLI wrapper with commit shortcut"
   if contains -- "$argv[1]" c commit
     claude-commit
   else
@@ -7,7 +7,7 @@ function cld-wrapper
   end
 end
 
-function claude-commit
+function claude-commit --description "Create commit for staged files using Claude"
   command claude -p "Create new commit for staged files with appropriate message." \
     --append-system-prompt (cat $CLAUDE_CONFIG_DIR/skills/git/SKILL.md | string collect) \
     --allowed-tools "Bash" \

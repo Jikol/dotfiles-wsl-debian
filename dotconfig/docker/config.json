@@ -1,5 +1,6 @@
 {
 	"auths": {
+		"dr.jikol.dev": {},
 		"localhost:5000": {}
 	},
 	"psFormat": "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}",

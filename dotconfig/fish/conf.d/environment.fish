@@ -1,5 +1,5 @@
 ## Functions ##
-function list-path
+function list-path --description "List all PATH entries"
 	echo (set_color cyan) "Path Variables" (set_color normal)
 	set -f path $PATH
 	for path in (string split ":" $path)
