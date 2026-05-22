@@ -16,9 +16,15 @@ end
 function ssh-wrapper --description "SSH with host listing support"
   if test (count $argv) -ge 1
     if contains -- "$argv[1]" ls list
-      set configPath "/mnt/c/Users/Jikol/.ssh/config"
+      if test -n "$USERPROFILE"
+        set winHome (wslpath "$USERPROFILE" 2>/dev/null)
+      else
+        set winUser (cmd.exe /c "echo %USERNAME%" 2>/dev/null | string trim)
+        set winHome "/mnt/c/Users/$winUser"
+      end
+      set configPath "$winHome/.ssh/config"
       if test -f $configPath
-        grep -E '^\s*(Host|HostName)\s+' $configPath | 
+        grep -E '^\s*(Host|HostName)\s+' $configPath |
         while read -l line
           echo $line
         end
