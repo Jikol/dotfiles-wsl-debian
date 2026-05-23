@@ -1,14 +1,12 @@
 ## Functions ##
 function sudo-wrapper --description "sudo with nala and editor HOME fix"
-	if contains -- "$argv[1]" apt
-		command sudo nala $argv[2..-1]
-  else if contains -- "$argv[1]" nvim vim
-    command sudo HOME=$HOME "$argv[1]" $argv[2..-1]
-	else if test -f /home/linuxbrew/.linuxbrew/bin/$argv[1]
-    command sudo env "PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" $argv
+  if contains -- "$argv[1]" apt
+    command sudo nala $argv[2..-1]
+  else if test -f /home/linuxbrew/.linuxbrew/bin/$argv[1]
+    command sudo HOME=$HOME env "PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" "$argv[1]" $argv[2..-1]
   else
-		command sudo $argv
-	end
+    command sudo $argv
+  end
 end
 
 function apt-wrapper --description "apt using nala"
@@ -44,7 +42,7 @@ alias sudo="sudo-wrapper"
 alias apt="apt-wrapper"
 alias ssh="ssh-wrapper"
 
-alias batrld="batcat cache --build"
+alias batrld="bat cache --build"
 alias tmuxrld="tmux source $HOME/.config/tmux/tmux.conf"
 alias chsync="$HOME/dotfiles/sync.sh sync-to"
 alias chapply="$HOME/dotfiles/sync.sh sync-from"

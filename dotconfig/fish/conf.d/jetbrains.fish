@@ -1,15 +1,15 @@
 ## Functions ##
 function _jb_open --description "JetBrains IDE launcher — bash subshell s cd /mnt/c, nezávislé na Toolbox scriptu"
-    set -l cmd $argv[1]
-    set -l args
-    for arg in $argv[2..]
-        if test -e $arg
-            set args $args (wslpath -w (realpath $arg))
-        else
-            set args $args $arg
-        end
+  set -l cmd $argv[1]
+  set -l args
+  for arg in $argv[2..]
+    if test -e $arg
+      set args $args (wslpath -w (realpath $arg))
+    else
+      set args $args $arg
     end
-    bash -c 'cd /mnt/c && "$0" "$@"' $cmd $args
+  end
+  bash -c 'cd /mnt/c && "$0" "$@"' $cmd $args
 end
 
 ## Aliases ##
