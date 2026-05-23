@@ -4,7 +4,9 @@ function sudo-wrapper --description "sudo with nala and editor HOME fix"
 		command sudo nala $argv[2..-1]
   else if contains -- "$argv[1]" nvim vim
     command sudo HOME=$HOME "$argv[1]" $argv[2..-1]
-	else
+	else if test -f /home/linuxbrew/.linuxbrew/bin/$argv[1]
+    command sudo env "PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" $argv
+  else
 		command sudo $argv
 	end
 end
