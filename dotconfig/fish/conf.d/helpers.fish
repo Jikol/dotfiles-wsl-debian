@@ -2,7 +2,7 @@
 function sudo-wrapper --description "sudo with nala and editor HOME fix"
   if contains -- "$argv[1]" apt
     command sudo nala $argv[2..-1]
-  else if test -f /home/linuxbrew/.linuxbrew/bin/$argv[1]
+  else if test -f /home/linuxbrew/.linuxbrew/bin/$argv[1]; or string match -q '/home/linuxbrew/*' (readlink -f (command -v $argv[1]) 2>/dev/null)
     command sudo HOME=$HOME env "PATH=/home/linuxbrew/.linuxbrew/bin:$PATH" "$argv[1]" $argv[2..-1]
   else
     command sudo $argv
