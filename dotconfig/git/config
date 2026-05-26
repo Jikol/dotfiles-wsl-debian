@@ -9,6 +9,8 @@
   c = commit -m
   s = status -sb
   stat = status
+  forget = rm -r --cached .
+  all = add .
   ls = log --oneline --decorate --graph
   sub = submodule update --recursive --remote
   conf = config --list --show-origin --show-scope
