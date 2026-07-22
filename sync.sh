@@ -39,6 +39,24 @@ run_sync() {
   fi
 }
 
+run_cron() {
+  local jobs_file="$CONFIG_PATH/cron/crontab.jobs"
+  local begin_marker="# >>> dotfiles-managed cron jobs >>>"
+  local end_marker="# <<< dotfiles-managed cron jobs <<<"
+
+  if [[ ! -f "$jobs_file" ]]; then
+    return
+  fi
+
+  local current stripped merged
+  current=$(crontab -l 2>/dev/null || true)
+  stripped=$(printf '%s\n' "$current" | sed "/^${begin_marker}\$/,/^${end_marker}\$/d")
+  merged=$(printf '%s\n%s\n%s\n%s\n' "$stripped" "$begin_marker" "$(cat "$jobs_file")" "$end_marker")
+
+  printf '%s\n' "$merged" | crontab -
+  echo -e "${CYAN_CLR}Cron jobs synced from $jobs_file${NC_CLR}"
+}
+
 run_links() {
   for pair in "${SYMLINKS[@]}"; do
     local src="$CONFIG_PATH/${pair%%:*}"
@@ -70,6 +88,7 @@ case "${1:-}" in
   sync-from)
     run_sync "$DOTFILES_PATH/" "$CONFIG_PATH/"
     run_links
+    run_cron
     ;;
   *)
     echo "Usage: $0 [sync-to|sync-from]"

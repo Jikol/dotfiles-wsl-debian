@@ -1,0 +1,1 @@
+*/5 * * * * $HOME/.config/cron/scripts/jb_kill_js_service.sh >>/tmp/jb_kill_js_service.log 2>&1
