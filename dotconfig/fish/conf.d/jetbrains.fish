@@ -19,3 +19,4 @@ end
 ## Aliases ##
 alias ws="_jb_open webstorm"
 alias pch="_jb_open pycharm"
+alias wsk="_jb_kill_js_service"

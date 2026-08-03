@@ -24,7 +24,7 @@ function ssh-wrapper --description "SSH with host listing support"
       end
       set configPath "$winHome/.ssh/config"
       if test -f $configPath
-        grep -E '^\s*(Host|HostName)\s+' $configPath |
+        grep -E '^\s*(Host|HostName|User)\s+' $configPath |
         while read -l line
           echo $line
         end

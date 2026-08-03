@@ -4,6 +4,6 @@
     "ntblppjavorsky:5000": {}
   },
   "credsStore": "desktop.exe",
-  "psFormat": "table \u001b[33m{{.ID}}\u001b[0m\t\u001b[36m{{.Names}}\u001b[0m\t\u001b[34m{{.Image}}\u001b[0m\t\u001b[32m{{.Status}}\u001b[0m\t\u001b[35m{{.Ports}}\u001b[0m",
-	"imagesFormat": "table \u001b[33m{{.ID}}\u001b[0m\t\u001b[34m{{.Repository}}:{{.Tag}}\u001b[0m\t\u001b[32m{{.CreatedSince}}\u001b[0m\t\u001b[37m{{.Size}}\u001b[0m\t\u001b[90m{{.Containers}}\u001b[0m"
+  "imagesFormat": "table \u001b[33m{{.ID}}\u001b[0m\t\u001b[34m{{.Repository}}:{{.Tag}}\u001b[0m\t\u001b[32m{{.CreatedSince}}\u001b[0m\t\u001b[37m{{.Size}}\u001b[0m\t\u001b[90m{{.Containers}}\u001b[0m",
+  "psFormat": "table \u001b[33m{{.ID}}\u001b[0m\t\u001b[36m{{.Names}}\u001b[0m\t\u001b[34m{{.Image}}\u001b[0m\t\u001b[32m{{.Status}}\u001b[0m\t\u001b[35m{{.Ports}}\u001b[0m"
 }
