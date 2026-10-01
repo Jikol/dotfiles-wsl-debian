@@ -6,7 +6,8 @@
     "refreshInterval": 10
   },
   "enabledPlugins": {
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "auto-memory@severity1-marketplace": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
@@ -17,5 +18,11 @@
     }
   },
   "effortLevel": "high",
-  "theme": "auto"
+  "tui": "fullscreen",
+  "theme": "auto",
+  "modelSettings": {
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
+    }
+  }
 }
